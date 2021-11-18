@@ -19,6 +19,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    private int age;
+
     @JoinColumn(name = "team_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
@@ -27,8 +29,16 @@ public class User {
         this.team = team;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, int age) {
         this.username = username;
         this.password = password;
+        this.age = age;
+    }
+
+    public User(String username, String password, int age, Team team) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.team = team;
     }
 }
